@@ -12,11 +12,11 @@ export default function Login() {
 
     function doLogin(e){
         e.preventDefault()
-        const nomeESenha = {email: email, password: password}
-        console.log(nomeESenha)
+        const loginTrackIt = {email: email, password: password}
+        console.log(loginTrackIt)
 
-        const url_post = "COLOCAR LINK DO API"
-        const promise = axios.post(url_post, nomeESenha)        //Precisa enviar os dois juntos
+        const url_post = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/login"
+        const promise = axios.post(url_post, loginTrackIt)        //Precisa enviar os dois juntos
 
         promise.then(res => {
             console.log(res.data)
@@ -28,6 +28,11 @@ export default function Login() {
         setPassword("")
     }
 
+    // if (!movie) {
+    //     return (
+    //         <Carregando>Loading...</Carregando>
+    //     )
+    // }
 
     return (
         <ScreenContainer>
