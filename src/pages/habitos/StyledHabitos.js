@@ -3,11 +3,12 @@ import styled from "styled-components";
 
 export const ScreenContainer = styled.div`
     width: 100%;
-    height: 100%;
+    height: fit-content;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    background-color: #E5E5E5;
+    height: 100vh;
 `
 
 export const Topo = styled.div`
@@ -35,7 +36,7 @@ export const ButtonAdd = styled.button`
 `
 
 export const Body = styled.div`
-    font-size: 19px;
+    font-size: 22px;
     color: #666;
     width: 90%;
 `
