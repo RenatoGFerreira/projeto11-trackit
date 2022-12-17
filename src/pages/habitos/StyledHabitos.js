@@ -8,7 +8,7 @@ export const ScreenContainer = styled.div`
     flex-direction: column;
     align-items: center;
     background-color: #E5E5E5;
-    height: 100vh;
+    height: 90vh;
 `
 
 export const Topo = styled.div`

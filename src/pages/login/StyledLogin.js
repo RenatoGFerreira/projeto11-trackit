@@ -48,12 +48,24 @@ margin-top: 10px ;
 export const SaveButton = styled.button`
 width: 100%;
 height: 45px;
-margin-top: 10px;
-margin-bottom: 10px;
+margin-top: 15px;
+margin-bottom: 15px;
 background-color: #52b6ff;
 border-style: none;
 color: #fff;
 font-size: 19px;
+display: flex;
+justify-content: center;
+align-items: center;
+position: relative;
+
+img{
+    position: relative;
+    top: 0;
+    margin-bottom: 130px;
+    width: 90px;
+    height: 30px;
+}
 
 
 `

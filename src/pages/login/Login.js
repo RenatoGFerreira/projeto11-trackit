@@ -3,12 +3,14 @@ import { ScreenContainer, Form, TitleInput, InputContainer, SaveButton } from ".
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import axios from "axios"
+import loadingReto from "../../assets/loading/loadingGif.gif"
 
 export default function Login({setDados}) {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
+    const [loading, setLoading] = useState(false)
 
     function doLogin(e){
         e.preventDefault()
@@ -16,7 +18,7 @@ export default function Login({setDados}) {
         console.log(loginTrackIt)
 
         const url_post = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/login"
-        const promise = axios.post(url_post, loginTrackIt)        //Precisa enviar os dois juntos
+        const promise = axios.post(url_post, loginTrackIt)        //
 
         promise.then(res => {
             setDados(res.data)
@@ -24,18 +26,14 @@ export default function Login({setDados}) {
         })
         promise.catch(err => {
             console.log(err.response.data)
+            setLoading(false)
             alert("[ERRO] Senha ou Usuário incorreto.")
         })
+        setLoading(true)
 
         setEmail("")
         setPassword("")
     }
-
-    // if (!movie) {
-    //     return (
-    //         <Carregando>Loading...</Carregando>
-    //     )
-    // }
 
     return (
         <ScreenContainer>
@@ -51,7 +49,7 @@ export default function Login({setDados}) {
                     <TitleInput htmlFor="password"></TitleInput>
                     <input type="password" placeholder="password" id="password" value={password} onChange={e => setPassword(e.target.value)} required/>
                 </InputContainer>
-                <SaveButton>Entrar</SaveButton>
+                <SaveButton disabled = {loading}>{loading ? <img src={loadingReto} alt="loading"/> : "Entrar"}</SaveButton>
 
                 <Link to={"/cadastro"}>
                     <p>Não tem conta? Cadastre-se!</p>
@@ -61,3 +59,6 @@ export default function Login({setDados}) {
         </ScreenContainer>
     )
 }
+
+
+//<button type="submit" disabled = {loading}> {loading? <img src={loadingGif} alt ="icone carregando"/>:"Entrar"}</button>

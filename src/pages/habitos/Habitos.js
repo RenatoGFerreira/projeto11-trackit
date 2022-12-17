@@ -2,12 +2,11 @@ import { ScreenContainer, Topo, ButtonAdd, Body } from "./StyledHabitos"
 import Header from "../../components/header/Header"
 import Nav from "../../components/Nav/Nav"
 
-export default function Habitos({dados}) {
+export default function Habitos() {
 
-    console.log(dados)
     return (
         <>
-            <Header dados={dados}/>
+            <Header/>
             <ScreenContainer>
 
                 <Topo>
