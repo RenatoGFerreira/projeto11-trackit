@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import axios from "axios"
 
-export default function Login() {
+export default function Login({setDados}) {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -19,10 +19,13 @@ export default function Login() {
         const promise = axios.post(url_post, loginTrackIt)        //Precisa enviar os dois juntos
 
         promise.then(res => {
-            console.log(res.data)
+            setDados(res.data)
             navigate("/habitos")
         })
-        promise.catch(err => console.log(err.response.data))
+        promise.catch(err => {
+            console.log(err.response.data)
+            alert("[ERRO] Senha ou Usuário incorreto.")
+        })
 
         setEmail("")
         setPassword("")
