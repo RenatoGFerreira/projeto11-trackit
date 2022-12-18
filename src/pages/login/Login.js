@@ -1,9 +1,10 @@
 import logo from "../../assets/logo/logo.png"
 import { ScreenContainer, Form, TitleInput, InputContainer, SaveButton } from "./StyledLogin"
 import { Link, useNavigate } from "react-router-dom"
-import { useState } from "react"
+import { useContext, useState } from "react"
 import axios from "axios"
 import loadingReto from "../../assets/loading/loadingGif.gif"
+// import { AuthContext } from "../../context/AuthContext"
 
 export default function Login({setDados}) {
 
@@ -11,23 +12,27 @@ export default function Login({setDados}) {
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
+    // const {setSetup} = useContext(AuthContext)
+
 
     function doLogin(e){
         e.preventDefault()
         const loginTrackIt = {email: email, password: password}
-        console.log(loginTrackIt)
 
         const url_post = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/login"
-        const promise = axios.post(url_post, loginTrackIt)        //
+        const promise = axios.post(url_post, loginTrackIt)
 
         promise.then(res => {
             setDados(res.data)
+
+            // setSetup(res.data.token)
+            // localStorage.setItem("token",res.data.token)
             navigate("/habitos")
         })
         promise.catch(err => {
             console.log(err.response.data)
             setLoading(false)
-            alert("[ERRO] Senha ou Usuário incorreto.")
+            alert(`[ERRO] ${err.response.data.message}`)
         })
         setLoading(true)
 
@@ -59,6 +64,3 @@ export default function Login({setDados}) {
         </ScreenContainer>
     )
 }
-
-
-//<button type="submit" disabled = {loading}> {loading? <img src={loadingGif} alt ="icone carregando"/>:"Entrar"}</button>

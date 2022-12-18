@@ -1,6 +1,7 @@
-import trackit from "../../assets/trackit.png"
 import { ScreenContainer, LogoContainer, ProfileContainer } from "./StyledHeader"
+import trackit from "../../assets/trackit.png"
 import perfil from "../../assets/exemplo_perfil.jpg"
+
 export default function Header() {
     
 
@@ -10,7 +11,7 @@ export default function Header() {
                 <img src={trackit} alt=" TrackIt" />
             </LogoContainer>
             <ProfileContainer>
-                <img src={perfil} alt="profile Picture"/>
+                <img src={perfil} alt="profile"/>
             </ProfileContainer>
         </ScreenContainer>
     )

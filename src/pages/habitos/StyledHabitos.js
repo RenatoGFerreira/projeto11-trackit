@@ -33,10 +33,18 @@ export const ButtonAdd = styled.button`
     width: 40px;
     border-radius: 5px;
     font-size: 29px;
+    border: none;
 `
 
 export const Body = styled.div`
     font-size: 22px;
     color: #666;
     width: 90%;
+`
+
+export const AddHabitForm = styled.div`
+    border: 1px solid red;
+    width: 100%;
+    height: 100%;
+    align-self: center;
 `
