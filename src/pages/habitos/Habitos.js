@@ -25,8 +25,9 @@ export default function Habitos() {
                     </Body>
                 </ScreenContainer>
                 :
-                <img alt="teste"/>
+                <></>
                 ///Parte de habitos já criados
+                ///Criar essa parte no final do dia
             }
 
             <Nav />

@@ -18,7 +18,7 @@ export default function Login() {
         console.log(cadastroTrackIt)
 
         const url_post = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/sign-up"
-        const promise = axios.post(url_post, cadastroTrackIt)        //Precisa enviar os dois juntos
+        const promise = axios.post(url_post, cadastroTrackIt)        
 
         promise.then(res => {
             console.log(res.data)
@@ -31,12 +31,6 @@ export default function Login() {
         setImage("")
         setName("")
     }
-
-    // if (!movie) {
-    //     return (
-    //         <Carregando>Loading...</Carregando>
-    //     )
-    // }
 
     return (
         <ScreenContainer>

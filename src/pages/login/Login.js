@@ -4,7 +4,8 @@ import { Link, useNavigate } from "react-router-dom"
 import { useContext, useState } from "react"
 import axios from "axios"
 import loadingReto from "../../assets/loading/loadingGif.gif"
-// import { AuthContext } from "../../context/AuthContext"
+import { AuthContext } from "../../context/AuthContext"
+import { ProfileContext } from "../../context/ProfileContext"
 
 export default function Login({setDados}) {
 
@@ -12,21 +13,28 @@ export default function Login({setDados}) {
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
     const [loading, setLoading] = useState(false)
-    // const {setSetup} = useContext(AuthContext)
+    const {setSetup} = useContext(AuthContext)
+    const {setProfile} = useContext(ProfileContext)
 
 
     function doLogin(e){
         e.preventDefault()
         const loginTrackIt = {email: email, password: password}
 
+
         const url_post = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/login"
         const promise = axios.post(url_post, loginTrackIt)
 
         promise.then(res => {
             setDados(res.data)
+            console.log(res.data)
 
-            // setSetup(res.data.token)
-            // localStorage.setItem("token",res.data.token)
+            localStorage.setItem("token", res.data.token)
+            localStorage.setItem("img", res.data.image)
+
+            setProfile(res.data.image)
+            setSetup(res.data.token)
+
             navigate("/habitos")
         })
         promise.catch(err => {

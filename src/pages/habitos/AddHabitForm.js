@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { useState, useContext } from "react"
-import { AuthContext } from "../../context/AuthContext";
-import axios from "axios";
+import { AuthContext } from "../../context/AuthContext"
+import axios from "axios"
 import loadingGif from "../../assets/loading/loadingGif.gif"
 
 export default function AddHabitForm({ setOpenForm, form, setForm }) {
@@ -37,30 +37,21 @@ export default function AddHabitForm({ setOpenForm, form, setForm }) {
                 })
             })
             promise.catch(err => {
-                alert(err.response.data.message)
-                alert()
+                alert(`[ERRO] ${err.response.data.message}`)
                 setLoading(false)
             })
         setLoading(true)
     }
     return (
         <Form onSubmit={postHabit}>
-            <input
-                disabled={loading}
-                type="text"
-                name="name"
-                value={form.name}
-                onChange={handleForm}
-                placeholder="nome do hábito"
-                required
-            />
+            <input disabled={loading} type="text" name="name" value={form.name} onChange={handleForm} placeholder="nome do hábito" required />
             <DaysButtonsContainer>
                 {WeekDays.map((d, index) => <DayButton type="button" disabled={loading} key={index} index={index} selectedDays={form.days} onClick={() => addDay(index)}> {d} </DayButton>)}
             </DaysButtonsContainer>
 
             <ActionsButtonsContainer>
                 <p onClick={() => setOpenForm(false)}>Cancelar</p>
-                <button type="submit" disabled={loading}> {loading ? <img src={loadingGif} alt="icone carregando" /> : "Salvar"}</button>
+                <button disabled={loading}> {loading ? <img src={loadingGif} alt="icone carregando" /> : "Salvar"}</button>
             </ActionsButtonsContainer>
         </Form>
 
