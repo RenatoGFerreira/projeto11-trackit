@@ -11,6 +11,10 @@ export const ScreenContainer = styled.div`
     justify-content: space-around;
     align-items: center;
     background-color: #fff;
+    a{
+        text-decoration: none;
+        color: #52B6FF;
+    }
 `
 
 

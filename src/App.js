@@ -5,12 +5,12 @@ import LoginCadastro from "./pages/loginCadastro/LoginCadastro"
 import Habitos from "./pages/habitos/Habitos"
 import Hoje from "./pages/hoje/Hoje"
 import { useState } from "react";
-import Header from "./components/header/Header";
-import Nav from "./components/Nav/Nav";
+import Historico from "./pages/historico/historico";
 
 function App() {
 
   const [dados, setDados] = useState([])
+  
   return (
     <BrowserRouter>
     <GlobalStyle/>
@@ -19,6 +19,7 @@ function App() {
       <Route path={"/cadastro"} element={<LoginCadastro/>}/>
       <Route path={"/habitos"} element={<Habitos dados={dados}/>}/>
       <Route path={"/hoje"} element={<Hoje/>}/>
+      <Route path={"/historico"} element={<Historico/>}/>
     </Routes>
     </BrowserRouter>
   );
