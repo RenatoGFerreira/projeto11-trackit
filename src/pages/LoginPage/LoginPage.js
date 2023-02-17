@@ -1,5 +1,5 @@
 import logo from "../../assets/logo/logo.png"
-import { ScreenContainer, Form, TitleInput, InputContainer, SaveButton } from "./StyledLogin"
+import { ScreenContainer, Form, TitleInput, InputContainer, SaveButton } from "./StyledLoginPage"
 import { Link, useNavigate } from "react-router-dom"
 import { useContext, useState } from "react"
 import axios from "axios"
@@ -9,6 +9,10 @@ import { ProfileContext } from "../../context/ProfileContext"
 
 export default function Login({setDados}) {
 
+
+
+    console.log(`AuthContext: ${AuthContext}`)
+
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const navigate = useNavigate()
@@ -16,6 +20,8 @@ export default function Login({setDados}) {
     const {setSetup} = useContext(AuthContext)
     const {setProfile} = useContext(ProfileContext)
 
+
+    console.log(`Após: ${AuthContext}`) 
 
     function doLogin(e){
         e.preventDefault()

@@ -1,5 +1,5 @@
 import logo from "../../assets/logo/logo.png"
-import { ScreenContainer, Form, TitleInput, InputContainer, SaveButton } from "./StyledLoginCadastro"
+import { ScreenContainer, Form, TitleInput, InputContainer, SaveButton } from "./StyledSignUpPage"
 import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react"
 import axios from "axios"

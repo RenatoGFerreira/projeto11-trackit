@@ -14,7 +14,6 @@ img{
 }
 form{
     width: 80%;
-
     input{
         width: 100%;
         border: 1px solid #d4d4d4;

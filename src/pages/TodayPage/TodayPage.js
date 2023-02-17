@@ -1,6 +1,6 @@
 import Header from "../../components/header/Header"
 import Nav from "../../components/Nav/Nav"
-import { ScreenContainer, Topo, Body, CardHoje } from "./StyledHoje"
+import { ScreenContainer, Topo, Body, CardHoje } from "./StyledTodayPage"
 export default function Hoje(){
     return(
         <>

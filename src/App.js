@@ -1,11 +1,11 @@
 import GlobalStyle from "./components/GlobalStyle"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./pages/login/Login";
-import LoginCadastro from "./pages/loginCadastro/LoginCadastro"
-import Habitos from "./pages/habitos/Habitos"
-import Hoje from "./pages/hoje/Hoje"
+import Login from "./pages/LoginPage/LoginPage";
+import LoginCadastro from "./pages/SignUpPage/SignUpPage"
+import Habitos from "./pages/HabitsPage/HabitsPage"
+import Hoje from "./pages/TodayPage/TodayPage"
 import { useState } from "react";
-import Historico from "./pages/historico/historico";
+import Historico from "./pages/HistoryPage/HystioryPage";
 
 function App() {
 

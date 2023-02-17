@@ -1,6 +1,6 @@
 import Header from "../../components/header/Header"
 import Nav from "../../components/Nav/Nav"
-import { ScreenContainer } from "./StyledHistorico"
+import { ScreenContainer } from "./StyleHistoryPage"
 export default function Historico(){
     return(
         <>

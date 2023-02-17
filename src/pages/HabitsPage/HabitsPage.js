@@ -1,4 +1,4 @@
-import { ScreenContainer, Topo, ButtonAdd, Body } from "./StyledHabitos"
+import { ScreenContainer, Topo, ButtonAdd, Body } from "./StyledHabitsPage"
 import Header from "../../components/header/Header"
 import Nav from "../../components/Nav/Nav"
 import { useState } from "react"
