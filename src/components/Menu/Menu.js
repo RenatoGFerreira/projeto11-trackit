@@ -1,11 +1,12 @@
 import { ScreenContainer, StyledLink, ContentProgressbar, CircularProgressbarContainer } from "./StyledMenu"
 import { Link } from "react-router-dom"
 import {CircularProgressbar, buildStyles} from "react-circular-progressbar"
+import "react-circular-progressbar/dist/styles.css"
 
 export default function Nav() {
     return (
         <ScreenContainer>
-            <StyledLink to="habitos">Hábitos</StyledLink>
+            <StyledLink to="/habitos">Hábitos</StyledLink>
 
             <ContentProgressbar>
                 <CircularProgressbarContainer>
@@ -26,7 +27,7 @@ export default function Nav() {
                 </CircularProgressbarContainer>
             </ContentProgressbar>
             
-            <StyledLink to="historico">Histórico</StyledLink>
+            <StyledLink to="/historico">Histórico</StyledLink>
 
         </ScreenContainer>
     )
