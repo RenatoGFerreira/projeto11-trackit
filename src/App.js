@@ -1,28 +1,30 @@
-import GlobalStyle from "./components/GlobalStyle"
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./pages/LoginPage/LoginPage";
-import LoginCadastro from "./pages/SignUpPage/SignUpPage"
-import Habitos from "./pages/HabitsPage/HabitsPage"
-import Hoje from "./pages/TodayPage/TodayPage"
+
+import LoginPage from "./pages/LoginPage/LoginPage";
+import SignUpPage from "./pages/SignUpPage/SignUpPage"
+import HabitsPage from "./pages/HabitsPage/HabitsPage"
+import TodayPage from "./pages/TodayPage/TodayPage"
+import HistoryPage from "./pages/HistoryPage/HystioryPage";
+import ErrorPage from "./pages/ErrorPage/ErrorPage";
+
 import { useState } from "react";
-import Historico from "./pages/HistoryPage/HystioryPage";
 
 function App() {
 
   const [dados, setDados] = useState([])
-  
+
   return (
     <BrowserRouter>
-    <GlobalStyle/>
-    <Routes>
-      <Route path={"/"} element={<Login setDados={setDados}/>}/>
-      <Route path={"/cadastro"} element={<LoginCadastro/>}/>
-      <Route path={"/habitos"} element={<Habitos dados={dados}/>}/>
-      <Route path={"/hoje"} element={<Hoje/>}/>
-      <Route path={"/historico"} element={<Historico/>}/>
-    </Routes>
+      <Routes>
+        <Route path={"/"} element={<LoginPage setDados={setDados} />} />
+        <Route path={"/cadastro"} element={<SignUpPage />} />
+        <Route path={"/habitos"} element={<HabitsPage dados={dados} />} />
+        <Route path={"/hoje"} element={<TodayPage />} />
+        <Route path={"/historico"} element={<HistoryPage />} />
+        <Route path={"*"} element={<ErrorPage />} />
+      </Routes>
     </BrowserRouter>
-  );
+  )
 }
 
 export default App;

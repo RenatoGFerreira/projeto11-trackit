@@ -1,69 +1,34 @@
-import logo from "../../assets/logo/logo.png"
-import { ScreenContainer, Form, TitleInput, InputContainer, SaveButton } from "./StyledSignUpPage"
-import { Link, useNavigate } from "react-router-dom"
-import { useState } from "react"
-import axios from "axios"
+import logo from "../../assets/img/logo.svg"
+import { ScreenContainer } from "./StyledSignUpPage"
+import { StyledInput } from "../../components/StyledInput"
+import { StyledButton } from "../../components/StyledButton"
+import { StyledLink } from "../../components/StyledLink"
+import { StyledForm } from "../../components/StyledForm"
+import { useNavigate } from "react-router-dom"
 
-export default function Login() {
 
-    const [email, setEmail] = useState("")
-    const [password, setPassword] = useState("")
-    const [image, setImage] = useState("")
-    const [name, setName] = useState("")
+export default function SignUpPage() {
+
     const navigate = useNavigate()
 
-    function doLogin(e){
+    function handleSignUp(e){
         e.preventDefault()
-        const cadastroTrackIt = {email: email, name: name, image: image, password: password}
-        console.log(cadastroTrackIt)
-
-        const url_post = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/auth/sign-up"
-        const promise = axios.post(url_post, cadastroTrackIt)        
-
-        promise.then(res => {
-            console.log(res.data)
-            navigate("/")
-        })
-        promise.catch(err => console.log(err.response.data))
-
-        setEmail("")
-        setPassword("")
-        setImage("")
-        setName("")
+        navigate("/")
     }
 
     return (
         <ScreenContainer>
             <img src={logo} alt="TrackIt, logo" />
-            <form onSubmit={doLogin}>
-            <Form>
-                <InputContainer>
-                    <TitleInput htmlFor="email"></TitleInput>
-                    <input type="email" placeholder="email" id="email" value={email} onChange={e => setEmail(e.target.value)} required />
-                </InputContainer>
-
-                <InputContainer>
-                    <TitleInput htmlFor="password"></TitleInput>
-                    <input type="password" placeholder="password" id="password" value={password} onChange={e => setPassword(e.target.value)} required/>
-                </InputContainer>
-
-                <InputContainer>
-                    <TitleInput htmlFor="name"></TitleInput>
-                    <input type="text" placeholder="nome" id="name" value={name} onChange={e => setName(e.target.value)}/>
-                </InputContainer>
-
-                <InputContainer>
-                    <TitleInput htmlFor="foto"></TitleInput>
-                    <input type="url" placeholder="foto" id="image" value={image} onChange={e => setImage(e.target.value)}/>
-                </InputContainer>
-
-                <SaveButton>Cadastrar</SaveButton>
-
-                <Link to={"/"}>
-                    <p>Ja tem uma conta? Faça Login!</p>
-                </Link>
-            </Form>
-            </form>
+            <StyledForm onSubmit={handleSignUp}> 
+                <StyledInput placeholder="email" disabled={false}/>
+                <StyledInput placeholder="senha" disabled={false}/>
+                <StyledInput placeholder="nome" disabled={false}/>
+                <StyledInput placeholder="foto" disabled={false}/>
+                <StyledButton disabled={false}>Cadastrar</StyledButton>
+            </StyledForm>
+            <StyledLink to="/">
+                Já tem uma conta? Faça Login!
+            </StyledLink>
         </ScreenContainer>
     )
 }

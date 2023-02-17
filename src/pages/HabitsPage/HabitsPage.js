@@ -1,12 +1,12 @@
 import { ScreenContainer, Topo, ButtonAdd, Body } from "./StyledHabitsPage"
-import Header from "../../components/header/Header"
-import Nav from "../../components/Nav/Nav"
+import Header from "../../components/Header/Header"
+import Menu from "../../components/Menu/Menu"
 import { useState } from "react"
 import AddHabitForm from "./AddHabitForm"
 
 export default function Habitos() {
 
-    const [habitsList, setHabitsList] = useState(null)
+    const [habitsList] = useState(null)
     const [openForm, setOpenForm] = useState(false)
     const [form, setForm] = useState({name:"", days:[]})
 
@@ -30,7 +30,7 @@ export default function Habitos() {
                 ///Criar essa parte no final do dia
             }
 
-            <Nav />
+            <Menu />
         </>
     )
 }

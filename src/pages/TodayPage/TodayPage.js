@@ -1,5 +1,5 @@
-import Header from "../../components/header/Header"
-import Nav from "../../components/Nav/Nav"
+import Header from "../../components/Header/Header"
+import Menu from "../../components/Menu/Menu"
 import { ScreenContainer, Topo, Body, CardHoje } from "./StyledTodayPage"
 export default function Hoje(){
     return(
@@ -18,7 +18,7 @@ export default function Hoje(){
                 </Body>
                 
             </ScreenContainer>
-            <Nav />
+            <Menu/>
         </>
     )
 }

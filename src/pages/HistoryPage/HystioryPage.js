@@ -1,5 +1,5 @@
-import Header from "../../components/header/Header"
-import Nav from "../../components/Nav/Nav"
+import Header from "../../components/Header/Header"
+import Menu from "../../components/Menu/Menu"
 import { ScreenContainer } from "./StyleHistoryPage"
 export default function Historico(){
     return(
@@ -9,7 +9,7 @@ export default function Historico(){
         <h1>Histórico</h1>
         <p>Em breve você poderá ver o histórico dos seus hábitos aqui!</p>
         </ScreenContainer>
-        <Nav/>
+        <Menu/>
         </>
     )
 }
