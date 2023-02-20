@@ -41,7 +41,11 @@ export default function Habitos() {
                     <img src={plusIcon} alt="Ícone de adicionar hábitos" />
                 </ButtonAdd>
             </CreateHabitContainer>
-            <CreateHabitCard isOpened={createHabitOpened} setCreateHabitOPened={setCreateHabitOPened}/>
+            <CreateHabitCard 
+                isOpened={createHabitOpened} 
+                setCreateHabitOPened={setCreateHabitOPened}
+                getHabitsList={getHabitsList}
+            />
             {isLoading ? (
                 <ThreeDots width={80} height={80} color="#126ba5" />
             ) : (

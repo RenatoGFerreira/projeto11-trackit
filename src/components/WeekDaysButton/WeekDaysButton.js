@@ -1,13 +1,23 @@
 import styled from "styled-components"
 import weekDays from "../../constants/weekDays"
 
-export default function WeekDayButtons({ selectedDays }) {
+export default function WeekDayButtons({ selectedDays, setSelectedDays, isLoading }) {
+
+    function handleDay(day){
+        if(selectedDays.includes(day)){
+            const newDays = selectedDays.filter(d => d !== day)
+            setSelectedDays(newDays)
+        }else{
+            setSelectedDays([...selectedDays, day])
+        }
+    }
     return (
-        <Day>
-            {weekDays.map((weekDay, id) =>
+        <Day disabled={isLoading}>
+            {weekDays.map((weekDay) =>
                 <StyleDay
                     key={weekDay.id}
                     isSelected={selectedDays.includes(weekDay.id)}
+                    onClick={() => handleDay(weekDay.id)}
                 >
                     {weekDay.day}
                 </StyleDay>)}

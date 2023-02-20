@@ -15,8 +15,8 @@ function getHabits(token) {
     return promise
 }
 
-function createHabit() {
-    const promise = axios.post(BASE_URL, createConfig(token))
+function createHabit(token, body) {
+    const promise = axios.post(BASE_URL, body, createConfig(token))
     return promise
 }
 
