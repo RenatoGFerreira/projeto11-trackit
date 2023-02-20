@@ -1,0 +1,29 @@
+import axios from "axios";
+
+const BASE_URL = "https://mock-api.bootcamp.respondeai.com.br/api/v2/trackit/habits"
+
+function createConfig(token) {
+    return {
+        headers: {
+            Authorization: `Bearer ${token}`
+        }
+    }
+}
+
+function getHabits(token) {
+    const promise = axios.get(BASE_URL, createConfig(token))
+    return promise
+}
+
+function createHabit() {
+    const promise = axios.post(BASE_URL, createConfig(token))
+    return promise
+}
+
+function deleteHabit() {
+
+}
+
+
+const apiHabits = { getHabits, createHabit, deleteHabit }
+export default apiHabits

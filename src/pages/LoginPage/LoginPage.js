@@ -36,7 +36,6 @@ export default function LoginPage() {
             .catch(err => {
                 setIsLoading(false)
                 alert(err.response.data.message)
-                console.log(err.response.data)
             })
     }
 
