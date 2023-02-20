@@ -1,9 +1,14 @@
 import { ScreenContainer, StyledLink, ContentProgressbar, CircularProgressbarContainer } from "./StyledMenu"
 import { Link } from "react-router-dom"
-import {CircularProgressbar, buildStyles} from "react-circular-progressbar"
+import { CircularProgressbar, buildStyles } from "react-circular-progressbar"
 import "react-circular-progressbar/dist/styles.css"
+import { useContext } from "react"
+import { ProgressContext } from "../../context/ProgressContext"
 
 export default function Nav() {
+
+    const { progress } = useContext(ProgressContext)
+
     return (
         <ScreenContainer>
             <StyledLink to="/habitos">Hábitos</StyledLink>
@@ -12,7 +17,7 @@ export default function Nav() {
                 <CircularProgressbarContainer>
                     <Link to="/hoje">
                         <CircularProgressbar
-                            // value={progress}
+                            value={progress}
                             text={"Hoje"}
                             background
                             backgroundPadding={6}
@@ -26,7 +31,7 @@ export default function Nav() {
                     </Link>
                 </CircularProgressbarContainer>
             </ContentProgressbar>
-            
+
             <StyledLink to="/historico">Histórico</StyledLink>
 
         </ScreenContainer>
