@@ -1,13 +1,21 @@
-import {Form, ButtonsContainer, Footer, CloseButton, SaveButton} from "./StyleCreateHabitCard"
-export default function CreateHabitCard() {
+import { Form, ButtonsContainer, Footer, CloseButton, SaveButton } from "./StyleCreateHabitCard"
+import WeekDayButtons from "../WeekDaysButton/WeekDaysButton"
+import { StyledInput } from "../StyledInput"
+
+
+export default function CreateHabitCard({isOpened, setCreateHabitOPened}) {
 
     return (
-        <Form isOpened={true}>
+        <Form isOpened={isOpened}>
             <ButtonsContainer>
-                <StyledInput
+            <StyledInput
+                    name="name"
                     placeholder="nome do hábito"
+                    type="text"
+                    required
                     disabled={false}
                 />
+
                 <WeekDayButtons
                     selectedDays={[]}
                 />
@@ -17,6 +25,7 @@ export default function CreateHabitCard() {
                 <CloseButton
                     type="button"
                     disabled={false}
+                    onClick={() => setCreateHabitOPened(false)}
                 >
                     Cancelar
                 </CloseButton>
@@ -25,9 +34,10 @@ export default function CreateHabitCard() {
                     type="submit"
                     disabled={false}
                 >
-                        Salvar
+                    Salvar
                 </SaveButton>
             </Footer>
         </Form>
     )
 }
+

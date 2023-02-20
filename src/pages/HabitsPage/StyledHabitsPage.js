@@ -10,41 +10,19 @@ export const ScreenContainer = styled.div`
     background-color: #E5E5E5;
     height: 90vh;
 `
-
-export const Topo = styled.div`
-    width: 90%;
-    font-size: 29px;
-    color: #126BA5;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin: 20px 0;
-
-    h1{
-        font-family: Lexend Deca, sans-serif;
-    }
-
+export const CreateHabitContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 15px;
 `
+
+
 export const ButtonAdd = styled.button`
-    background-color: #52B6FF;
-    color: #fff;
-    height: 35px;
-    width: 40px;
-    border-radius: 5px;
-    font-size: 29px;
-    border: none;
-`
-
-export const Body = styled.div`
-    font-size: 22px;
-    color: #666;
-    width: 90%;
-`
-
-export const AddHabitForm = styled.div`
-    border: 1px solid red;
-    width: 100%;
-    height: 100%;
-    align-self: center;
+  width: 35px;
+  height: 35px;
+  border: none;
+  background-color: #52B6FF;
+  border-radius: 5px;  
 `
