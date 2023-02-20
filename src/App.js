@@ -15,14 +15,14 @@ function App() {
 
   return (
     <BrowserRouter>
-      <UserContext.Provider value={(user, setUser)}>
+      <UserContext.Provider value={{user, setUser}}>
         <Routes>
-          <Route path={"/"} element={<LoginPage />} />
-          <Route path={"/cadastro"} element={<SignUpPage />} />
-          <Route path={"/habitos"} element={<HabitsPage  />} />
-          <Route path={"/hoje"} element={<TodayPage />} />
-          <Route path={"/historico"} element={<HistoryPage />} />
-          <Route path={"*"} element={<ErrorPage />} />
+          <Route path="/" element={<LoginPage />} />
+          <Route path="/cadastro" element={<SignUpPage />} />
+          <Route path="/habitos" element={<HabitsPage  />} />
+          <Route path="/hoje" element={<TodayPage />} />
+          <Route path="/historico" element={<HistoryPage />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </UserContext.Provider>
     </BrowserRouter>
