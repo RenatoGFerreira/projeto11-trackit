@@ -1,9 +1,10 @@
-import logo from "../../assets/img/logo.svg"
 import { ScreenContainer } from "./StyledLoginPage"
 import { StyledButton } from "../../components/StyledButton"
 import { StyledForm } from "../../components/StyledForm"
 import { StyledInput } from "../../components/StyledInput.js"
 import { StyledLink } from "../../components/StyledLink.js"
+
+import logo from "../../assets/img/logo.svg"
 import { useNavigate } from "react-router-dom"
 import apiAuth from "../../services/apiAuth"
 import { useContext, useState } from "react"
@@ -13,7 +14,7 @@ import { ThreeDots } from "react-loader-spinner"
 
 export default function LoginPage() {
     const [form, setForm] = useState({ email: "", password: "" })
-    const {user, setUser} = useContext(UserContext)
+    const { setUser } = useContext(UserContext)
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(false)
 
@@ -27,7 +28,6 @@ export default function LoginPage() {
 
         apiAuth.login(form)
             .then(res => {
-                console.log(res.data)
                 const { id, name, image, token } = res.data
                 setUser({ id, name, image, token })
                 setIsLoading(false)
@@ -39,7 +39,6 @@ export default function LoginPage() {
                 console.log(err.response.data)
             })
     }
-
 
     return (
         <ScreenContainer>
