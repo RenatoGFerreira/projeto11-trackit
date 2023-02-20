@@ -20,8 +20,9 @@ function createHabit() {
     return promise
 }
 
-function deleteHabit() {
-
+function deleteHabit(token, id) {
+    const promise = axios.delete(`${BASE_URL}/${id}`, createConfig(token))
+    return promise
 }
 
 

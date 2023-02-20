@@ -29,6 +29,7 @@ export default function LoginPage() {
         apiAuth.login(form)
             .then(res => {
                 const { id, name, image, token } = res.data
+                console.log(res.data)
                 setUser({ id, name, image, token })
                 setIsLoading(false)
                 navigate("/hoje")

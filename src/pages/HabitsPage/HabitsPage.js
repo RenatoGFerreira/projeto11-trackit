@@ -6,7 +6,6 @@ import { UserContext } from "../../context/UserContext"
 import HabitCard from "../../components/HabitCard/HabitCard"
 
 
-
 export default function Habitos() {
     const [habits, setHabits] = useState([])
     const { user } = useContext(UserContext)
@@ -26,16 +25,14 @@ export default function Habitos() {
 
     return (
         <ScreenWithBars>
-            <h1>texto</h1>
-            
             {habits.map(h => 
             <HabitCard 
                 key={h.id}
+                id={h.id}
                 name={h.name}
                 days={h.days}
+                getHabitsList={getHabitsList}
             />)}
-
-
         </ScreenWithBars>
     )
 }
