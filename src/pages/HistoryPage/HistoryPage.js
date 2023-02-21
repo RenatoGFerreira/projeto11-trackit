@@ -1,15 +1,12 @@
-import Header from "../../components/Header/Header"
-import Menu from "../../components/Menu/Menu"
-import { ScreenContainer } from "./StyleHistoryPage"
-export default function Historico(){
-    return(
-        <>
-        <Header/>
-        <ScreenContainer>
-        <h1>Histórico</h1>
-        <p>Em breve você poderá ver o histórico dos seus hábitos aqui!</p>
-        </ScreenContainer>
-        <Menu/>
-        </>
+import ScreenWithBars from "../../components/ScreenWithBars/ScreenWithBars"
+import StyledSubtitle from "../../components/StyledSubtitle"
+import StyledTitle from "../../components/StyledTitle"
+
+export default function Historico() {
+    return (
+        <ScreenWithBars>
+                <StyledTitle>Histórico</StyledTitle>
+                <StyledSubtitle>Em breve você poderá ver o histórico dos seus hábitos aqui!</StyledSubtitle>
+        </ScreenWithBars>
     )
 }

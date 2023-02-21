@@ -14,10 +14,10 @@ export default function HabitCard({ name, days, id, getHabitsList }) {
         if(confirmation){
             apiHabits.deleteHabit(user.token, id)
                 .then(res =>{
-                    getHabitsList(res.data)
+                    getHabitsList()
                 })
                 .cathc(err =>{
-                    console.log(err.response.data.message)
+                    alert(err.response.data.message)
                 })
         }
     }

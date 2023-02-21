@@ -6,7 +6,7 @@ import apiHabits from "../../services/apiHabits"
 import { UserContext } from "../../context/UserContext"
 import { ThreeDots } from "react-loader-spinner"
 
-export default function CreateHabitCard({ isOpened, setIsOpened, getHabitsList, setCreateHabitOPened }) {
+export default function CreateHabitCard({ isOpened, setIsOpened, getHabitsList }) {
     const [isLoading, setIsLoading] = useState(false)
     const [form, setForm] = useState({ name: "" })
     const [days, setDays] = useState([])
@@ -26,7 +26,6 @@ export default function CreateHabitCard({ isOpened, setIsOpened, getHabitsList, 
                 setForm({name: ""})
                 setDays([])
                 setIsOpened(false)
-                setCreateHabitOPened(false)
                 setIsLoading(false)
                 getHabitsList()
                 
@@ -50,19 +49,17 @@ export default function CreateHabitCard({ isOpened, setIsOpened, getHabitsList, 
                     value={form.name}
                     onChange={handleForm}
                 />
-
                 <WeekDayButtons
                     selectedDays={days}
                     setSelectedDays={setDays} 
                     isLoading={isLoading}
                 />
             </ButtonsContainer>
-
             <Footer>
                 <CloseButton
                     type="button"
                     disabled={isLoading}
-                    onClick={() => setCreateHabitOPened(false)}
+                    onClick={() => setIsOpened(false)}
                 >
                     Cancelar
                 </CloseButton>

@@ -15,7 +15,7 @@ import CreateHabitCard from "../../components/CreateHabitsCard/CreateHabitCard"
 export default function Habitos() {
     const [habits, setHabits] = useState([])
     const [isLoading, setIsLoading] = useState(true)
-    const [createHabitOpened, setCreateHabitOPened] = useState(false)
+    const [createHabitOpened, setCreateHabitOpened] = useState(false)
     const { user } = useContext(UserContext)
 
     useEffect(getHabitsList, [])
@@ -29,7 +29,7 @@ export default function Habitos() {
             })
             .catch(err => {
                 setIsLoading(false)
-                console.log(err.response.data.message)
+                alert(err.response.data.message)
             })
     }
 
@@ -37,13 +37,13 @@ export default function Habitos() {
         <ScreenWithBars>
             <CreateHabitContainer>
                 <StyledTitle>Meus Hábitos</StyledTitle>
-                <ButtonAdd onClick={() => setCreateHabitOPened(!createHabitOpened)}>
+                <ButtonAdd onClick={() => setCreateHabitOpened(!createHabitOpened)}>
                     <img src={plusIcon} alt="Ícone de adicionar hábitos" />
                 </ButtonAdd>
             </CreateHabitContainer>
             <CreateHabitCard 
                 isOpened={createHabitOpened} 
-                setCreateHabitOPened={setCreateHabitOPened}
+                setIsOpened={setCreateHabitOpened}
                 getHabitsList={getHabitsList}
             />
             {isLoading ? (
