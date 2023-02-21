@@ -14,7 +14,7 @@ import { ProgressContext } from "../../context/ProgressContext"
 
 export default function Hoje() {
     const { user } = useContext(UserContext)
-    const {progress} = useContext(ProgressContext)
+    const {progress, setProgress} = useContext(ProgressContext)
     const [habits, setHabits] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
@@ -23,8 +23,14 @@ export default function Hoje() {
     function getTodayHabits() {
         apiToday.getToday(user.token)
             .then(res => {
-                setHabits(res.data)
+                const apiHabits = res.data
+                setHabits(apiHabits)
                 setIsLoading(false)
+
+                const doneHabits = apiHabits.filter(h => h.done === true)
+                const calc = ((doneHabits.length/ apiHabits.length) * 100).toFixed(0)
+                setProgress(calc)
+
             })
             .catch(err => {
                 console.log(err.response.data.message)

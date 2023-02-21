@@ -7,18 +7,14 @@ import TodayPage from "./pages/TodayPage/TodayPage"
 import HistoryPage from "./pages/HistoryPage/HistoryPage";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 
-import { useState } from "react";
-import { UserContext } from "./context/UserContext";
-import { ProgressContext } from "./context/ProgressContext";
+import UserProvider from "./context/UserContext";
+import ProgressProvider from "./context/ProgressContext";
 
 function App() {
-  const [user, setUser] = useState({})
-  const [progress, setProgress] = useState(30)
-
   return (
     <BrowserRouter>
-      <ProgressContext.Provider value={{progress, setProgress}}>
-        <UserContext.Provider value={{ user, setUser }}>
+      <ProgressProvider>
+        <UserProvider>
           <Routes>
             <Route path="/" element={<LoginPage />} />
             <Route path="/cadastro" element={<SignUpPage />} />
@@ -27,8 +23,8 @@ function App() {
             <Route path="/historico" element={<HistoryPage />} />
             <Route path="*" element={<ErrorPage />} />
           </Routes>
-        </UserContext.Provider>
-      </ProgressContext.Provider>
+        </UserProvider>
+      </ProgressProvider>
     </BrowserRouter>
   )
 }

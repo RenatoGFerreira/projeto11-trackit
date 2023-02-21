@@ -10,6 +10,8 @@ import { UserContext } from "../../context/UserContext"
 import HabitCard from "../../components/HabitCard/HabitCard"
 import { ThreeDots } from "react-loader-spinner"
 import CreateHabitCard from "../../components/CreateHabitsCard/CreateHabitCard"
+import apiToday from "../../services/apiToday"
+import { ProgressContext } from "../../context/ProgressContext"
 
 
 export default function Habitos() {
@@ -17,6 +19,7 @@ export default function Habitos() {
     const [isLoading, setIsLoading] = useState(true)
     const [createHabitOpened, setCreateHabitOpened] = useState(false)
     const { user } = useContext(UserContext)
+    const {setProgress} = useContext(ProgressContext)
 
     useEffect(getHabitsList, [])
 
@@ -26,11 +29,23 @@ export default function Habitos() {
                 const apiHabits = res.data
                 setIsLoading(false)
                 setHabits(apiHabits)
+                getTodayHabits()
             })
             .catch(err => {
                 setIsLoading(false)
                 alert(err.response.data.message)
             })
+    }
+
+    function getTodayHabits(){
+        apiToday.getToday(user.token)
+        .then(res => {
+            const apiHabits = res.data
+            const doneHabits = apiHabits.filter(h => h.done === true)
+            const calc = ((doneHabits.length / apiHabits.length) * 100).toFixed(0)
+            setProgress(calc)
+        })
+        .catch(err => alert(err.response.data.message))
     }
 
     return (
