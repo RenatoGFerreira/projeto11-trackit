@@ -17,12 +17,12 @@ function getToday(token) {
 }
 
 function checkHabit(token, id) {
-    const promise = axios.post(`${BASE_URL}/${id}/check`, createConfig(token))
+    const promise = axios.post(`${BASE_URL}/${id}/check`, {}, createConfig(token))
     return promise
 }
 
 function uncheckHabit(token, id) {
-    const promise = axios.post(`${BASE_URL}/${id}/uncheck`, createConfig(token))
+    const promise = axios.post(`${BASE_URL}/${id}/uncheck`, {}, createConfig(token))
     return promise
 }
 

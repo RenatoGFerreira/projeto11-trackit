@@ -1,18 +1,35 @@
+import { useContext } from "react"
 import checkIcon from "../../assets/img/check.svg"
-import { 
-    Container, 
-    DetailsContainer, 
-    Title, 
-    Paragraph, 
-    CurrentSequence, 
-    HighestSequence, 
-    CheckMarkContainer 
+import { UserContext } from "../../context/UserContext"
+import apiToday from "../../services/apiToday"
+import {
+    Container,
+    DetailsContainer,
+    Title,
+    Paragraph,
+    CurrentSequence,
+    HighestSequence,
+    CheckMarkContainer
 } from "./StyledHabitCard"
 
 
 
-export default function HabitCheckCard({id, name, done, currentSequence, highestSequence}){
-    return(
+export default function HabitCheckCard({ id, name, done, currentSequence, highestSequence, getTodayHabits }) {
+
+    const { user } = useContext(UserContext)
+
+    function handleCheck() {
+        if (done) {
+            apiToday.uncheckHabit(user.token, id)
+                .then(() => getTodayHabits())
+                .catch(err => err.response.data.message)
+            }else{
+                apiToday.checkHabit(user.token, id)
+                    .then(() => getTodayHabits())
+                    .catch(err => err.response.data.message)
+            }
+        }
+    return (
         <Container>
             <DetailsContainer>
                 <Title>{name}</Title>
@@ -29,8 +46,8 @@ export default function HabitCheckCard({id, name, done, currentSequence, highest
                     </HighestSequence>
                 </Paragraph>
             </DetailsContainer>
-            <CheckMarkContainer done={done}>
-                <img src={checkIcon} alt="check.svg" />
+            <CheckMarkContainer done={done} onClick={handleCheck}>
+                <img src={checkIcon} alt="icone de check" />
             </CheckMarkContainer>
         </Container>
     )

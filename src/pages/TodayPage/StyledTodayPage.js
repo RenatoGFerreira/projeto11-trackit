@@ -1,24 +1,9 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
-
-export const Topo = styled.div`
-    width: 90%;
-    font-size: 22px;
-    color: #126BA5;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: left;
-    margin: 20px 0;
-
-    h1{
-        font-family: Lexend Deca, sans-serif;
-        margin-bottom: 5px;
-    }
-    p{
-        color: #bababa;
-        font-family: Lexend Deca, sans-serif;
-        font-size: 19px;
-    }
-
+export const HabitsAmountText = styled.p`
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 28px;
+  color: ${(props) => props.doneAmount !== 0 ? "#8FC549" : "#BABABA"};
+  align-self: flex-start;
 `
