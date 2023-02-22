@@ -32,6 +32,8 @@ export default function LoginPage() {
                 console.log(res.data)
                 setUser({ id, name, image, token })
                 setIsLoading(false)
+                //localStorage.setItem("token", token)
+                localStorage.setItem("user", JSON.stringify({id, name, image, token}))
                 navigate("/hoje")
             })
             .catch(err => {
